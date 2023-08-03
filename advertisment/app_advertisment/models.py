@@ -1,5 +1,7 @@
 from django.db import models
-
+from django.contrib import admin
+from django.utils.html import format_html
+from django.utils import timezone
 
 class Advertisement(models.Model):
     title = models.CharField('Заголовок', max_length=128)
@@ -8,11 +10,18 @@ class Advertisement(models.Model):
     auction = models.BooleanField('Торг',help_text='Отметьте,если торг уместен')
     created_at = models.DateTimeField('Дата и время создания',auto_now_add=True)
     updated_at = models.DateTimeField('Дата и время изменения', auto_now=True)
+    @admin.display(description='Дата создания')
+    def created_date(self):
+        if self.created_at.date() == timezone.now().date():
+            created.time=self.created_at.time().strtime('%H:%M:%S')
+            return format_html(
+                '<span style="color:green; font-weight:bold;">Сегодня в {}</span>',created.time
+            )
+        return self.created_at.strtime('%d.%m.%Y в %H:%M:%S ')
 
-def __srt__(self):
-    return f"Advertisement(id={self.id},title={self.title},price={self.price}"
-
-class Meta:
-    db_table="advertisment"
+    def __srt__(self):
+        return f"Advertisement(id={self.id},title={self.title},price={self.price})"
+    class Meta:
+            db_table="advertisement"
 
 
