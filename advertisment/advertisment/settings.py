@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-e!@-d#i_%r09$0-l7qxu*$bwy=m$b-vod%&r+1(e=(xf_=eeys'
+SECRET_KEY = 'django-insecure-r#57k05dsi9lgdluysb=b6fl$fj)xscod$1wsz@sspeqkhz#n7'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'app_advertisment',
     'app_lesson_4',
+    'app_auth',
 ]
 
 MIDDLEWARE = [
@@ -56,7 +57,7 @@ ROOT_URLCONF = 'advertisment.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [Path.joinpath(BASE_DIR,'templates')],
+        'DIRS': [Path.joinpath(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -118,15 +119,16 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS=[
-    Path.joinpath(BASE_DIR,'static')
-    ]
+STATICFILES_DIRS = [
+    Path.joinpath(BASE_DIR, 'static')
+]
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-#Media config
+# Media config
 
-MEDIA_ROOT = Path.joinpath(BASE_DIR,'media/')
+MEDIA_ROOT = Path.joinpath(BASE_DIR, 'media/')
 MEDIA_URL = 'media/'

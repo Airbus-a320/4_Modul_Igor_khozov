@@ -9,7 +9,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('app_advertisment', '0004_alter_advertisement_auction'),
+        ('app_advertisment', '0002_alter_advertisement_table'),
     ]
 
     operations = [
@@ -18,5 +18,10 @@ class Migration(migrations.Migration):
             name='user',
             field=models.ForeignKey(default=1, on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL, verbose_name='Пользователь'),
             preserve_default=False,
+        ),
+        migrations.AlterField(
+            model_name='advertisement',
+            name='auction',
+            field=models.BooleanField(help_text='Отьметьте, если торг уместен', verbose_name='Торг'),
         ),
     ]
